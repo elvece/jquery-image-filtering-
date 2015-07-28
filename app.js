@@ -26,6 +26,11 @@ $(document).ready(function() {
     $('body').css({'background-image':'url(\'img/forest.jpg\')', 'background-size': 'cover' });
   });
 
+  $('.low').on('click',function(){
+    for(i=0; i < $('.home').length; i++){
+      $('.home')[i].dataset.price.sort();
+    }
+  });
 
 });
 
