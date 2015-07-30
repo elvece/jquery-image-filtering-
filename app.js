@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
 //creating new home variables to append
   var text1 = "<article class=\"home \" data-price=\"300000\"> <img src=\"img/one.jpg\" width=\"100%\"><h4>$300,000</h4></article>";
 
@@ -41,41 +42,70 @@ $(document).ready(function() {
     dataPriceArray.push(parseInt(dataPrice));
   }
 
-//function that appends the entire home article to the container based on order of dataPriceArray
-  function append(){
-  for (var i = 0; i < $('.home').length; i++) {
-    for (var j = 0; j < $('.home').length; j++) {
-      if(parseInt($('.home')[j].dataset.price) === dataPriceArray[i]){
-        $('.image-container').append($('.home')[j]);
+  var homes = $('.home');
+
+//function that appends the entire home article to the container based on order of arr
+  function append(arr){
+  $('.image-container').hide();
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr.length; j++) {
+      if(parseInt(homes[j].dataset.price) === arr[i]){
+        $('.image-container').append(homes[j]);
       }
     }
-  }
-};
+  } $('.image-container').show();
+}
 
 //sorts prices low to high and appends homes accordingly
   $('.low').on('click',function(event){
    event.preventDefault();
-   dataPriceArray.sort(function(a,b){return a-b});
-   append(dataPriceArray);
+   dataPriceArray.sort(function(a,b){
+    return a-b;
+    });
+     append(dataPriceArray);
   });
 
 //sorts prices high to low and appends homes accordingly
   $('.high').on('click',function(event){
     event.preventDefault();
-    dataPriceArray.sort(function(a,b){return b-a});
-    append(dataPriceArray);
+    dataPriceArray.sort(function(a,b){
+      return b-a;
     });
+    append(dataPriceArray);
+  });
 
 //showing one price range of houses
+  $('input').on('click', function(event){
+    if(this.checked){
+      var notChecked = $('input:not(:checked)');
+      var rangeArr = [];
+      var amount = $('input:checkbox:checked').val();
+      var checked = $('input:checkbox:checked');
+      var numAmount = parseInt(amount);
+      var lowPrice = 0;
 
-    // var $filters = $('label');
-    // //array of labels
-    // for (var i = 0; i < $('.home').length; i++) {
-
-    // };
-
-
-
+      for (var i = 0; i < dataPriceArray.length; i++) {
+        if (dataPriceArray[i] < numAmount){
+          rangeArr.push(dataPriceArray[i]);
+        }
+      }
+      var totalRangeArr = [];
+      for (var k = 0; k < rangeArr.length; k++) {
+        for (var j = 0; j < dataPriceArray.length; j++) {
+          if(parseInt(homes[j].dataset.price) === rangeArr[k]){
+            totalRangeArr.push(homes[j]);
+          }
+        }
+      }
+      $('.image-container').html('');
+      for (var l = 0; l < totalRangeArr.length; l++) {
+        $('.image-container').append(totalRangeArr[l]);
+      }
+    }
+    else {
+      $('.image-container').append(homes);
+    }
+  });
 
 });
 
