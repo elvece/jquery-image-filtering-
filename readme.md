@@ -1,5 +1,7 @@
 ## jQuery Filtering && Pagination
 
+***This repo contains the solution to this exercise resulting from pair programming with Bradley:***
+
 In this repository, you will practice implementing a filtering system on a set of DOM attributes.
 
 You will use click handlers, data-attributes, and whatever other means possible to filter cabins based on their price. Editing the HTML is fair game for this exercise.
@@ -43,7 +45,7 @@ You will use click handlers, data-attributes, and whatever other means possible 
 -  Update the HTML so that all the cabins fall within the same price range. Next, implement a pagination feature which only displays 6 cabins at a time. Users must click a "Next Page" button to see the next 6 images. Your filtering functionality should still work.
 
 
-## Useful Snippets
+### Useful Snippets
 
 -  Use `$("input:checked"))` to select all checkboxes that are currently selected.
 -  It may be helpful to build an object which maps houses to their respective price category. This may be similar to the [Historical Life Expectancy Exercise](http://eloquentjavascript.net/code/#5.3)
