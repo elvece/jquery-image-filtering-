@@ -1,6 +1,6 @@
 ## jQuery Filtering && Pagination
 
-***Note:*** This assignment is not completed in its entierty. It is a work in progress and needs to be refactored.
+***Note:*** This assignment is not completed in its entierty (almost done with iteration 3). It is a work in progress and needs to be refactored.
 
 ***This repo contains the solution to this exercise resulting from pair programming with Bradley:***
 
