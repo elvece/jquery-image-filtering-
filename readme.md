@@ -1,5 +1,7 @@
 ## jQuery Filtering && Pagination
 
+***Note:*** This assignment is not completed in its entierty. It is a work in progress and needs to be refactored.
+
 ***This repo contains the solution to this exercise resulting from pair programming with Bradley:***
 
 In this repository, you will practice implementing a filtering system on a set of DOM attributes.
